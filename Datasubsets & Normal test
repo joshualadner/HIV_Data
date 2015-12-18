@@ -1,0 +1,47 @@
+##Start Up
+library(lme4)
+acg.pcg.combined<- read.csv(file.choose(), header=TRUE) ##
+
+###Subsetting Data####
+
+acgbefore <- subset(acg.pcg.combined, Region =="ACG" & Time == "Before")
+acgafter <- subset(acg.pcg.combined, Region =="ACG" & Time == "After")
+pcgbefore <- subset(acg.pcg.combined, Region =="PCG" & Time == "Before")
+pcgafter <- subset(acg.pcg.combined, Region =="PCG" & Time == "After")
+
+##normality test##
+shapiro.test(acgbefore$Asp)
+shapiro.test(acgbefore$Glu.Gln)
+shapiro.test(acgbefore$Cr.PCr)
+shapiro.test(acgbefore$GPC.PCh)
+shapiro.test(acgbefore$GABA)
+shapiro.test(acgbefore$NAA.NAAG)##not normal##
+shapiro.test(acgbefore$Ins)
+shapiro.test(acgbefore$GSH)##not normal##
+
+shapiro.test(acgafter$Asp)
+shapiro.test(acgafter$Glu.Gln)
+shapiro.test(acgafter$Cr.PCr)##not normal##
+shapiro.test(acgafter$GPC.PCh)##not normal##
+shapiro.test(acgafter$GABA)
+shapiro.test(acgafter$NAA.NAAG)##not normal##
+shapiro.test(acgafter$Ins)##not normal##
+shapiro.test(acgafter$GSH)
+
+shapiro.test(pcgafter$Asp)##not normal##
+shapiro.test(pcgafter$Glu.Gln)##not normal##
+shapiro.test(pcgafter$Cr.PCr)
+shapiro.test(pcgafter$GPC.PCh)
+shapiro.test(pcgafter$GABA)
+shapiro.test(pcgafter$NAA.NAAG)
+shapiro.test(pcgafter$Ins)
+shapiro.test(pcgafter$GSH)
+
+shapiro.test(pcgbefore$Asp)
+shapiro.test(pcgbefore$Glu.Gln)
+shapiro.test(pcgbefore$Cr.PCr)
+shapiro.test(pcgbefore$GPC.PCh)
+shapiro.test(pcgbefore$GABA)
+shapiro.test(pcgbefore$NAA.NAAG)
+shapiro.test(pcgbefore$Ins)
+shapiro.test(pcgbefore$GSH)
