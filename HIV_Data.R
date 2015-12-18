@@ -4,12 +4,12 @@ acg.pcg.combined <- read.csv(file.choose(), header=TRUE)
 na.exclude(acg.pcg.combined)
 
 
-GSH.model = lmer(GSH ~ Region + Time + GSH..SD + (1|Subject), data=acg.pcg.combined)
+GSH.model = lmer(GSH ~ Time + Region + GSH..SD + (1|Subject), data=acg.pcg.combined)
 summary(GSH.model)
 residuals.gsh <- resid(GSH.model)
 plot(GSH.model, xlab = "Concentration", ylab = "GSH Residual")
 
-GSH.Cr.model = lmer(GSH.Cr ~ Region + Time + GSH..SD + (1|Subject), data=acg.pcg.combined)
+GSH.Cr.model = lmer(GSH.Cr ~ Time + Region + GSH..SD + (1|Subject), data=acg.pcg.combined)
 summary(GSH.Cr.model)
 residuals.gsh.cr <- resid(GSH.Cr.model)
 plot(GSH.Cr.model, xlab = "Concentration", ylab = "GSH.Cr Residual")
@@ -20,7 +20,7 @@ summary(Ins.model)
 residuals.ins <- resid(Ins.model)
 plot(Ins.model, xlab = "Concentration", ylab = "Ins Residual")
 
-Ins.Cr.model = lmer(Ins.Cr ~ Region + Time + Ins..SD + (1|Subject), data=acg.pcg.combined)
+Ins.Cr.model = lmer(Ins.Cr ~ Time + Region + Ins..SD + (1|Subject), data=acg.pcg.combined)
 summary(Ins.Cr.model)
 residuals.ins.cr <- resid(Ins.Cr.model)
 plot(Ins.Cr.model, xlab = "Concentration", ylab = "Ins.Cr Residual")
@@ -31,7 +31,7 @@ summary(NAA.NAAG.model)
 residuals.naa.naag <- resid(NAA.NAAG.model)
 plot(NAA.NAAG.model, xlab = "Concentration", ylab = "NAA.NAAG Residual")
 
-NAA.NAAG.Cr.model = lmer(NAA.NAAG.Cr ~ Region + Time + NAA.NAAG..SD + (1|Subject), data=acg.pcg.combined)
+NAA.NAAG.Cr.model = lmer(NAA.NAAG.Cr ~ Time + Region + NAA.NAAG..SD + (1|Subject), data=acg.pcg.combined)
 summary(NAA.NAAG.Cr.model)
 residuals.naa.naa.cr <- resid(NAA.NAAG.Cr.model)
 plot(NAA.NAAG.Cr.model, xlab = "Concentration", ylab = "NAA.NAAG.Cr Residual")
@@ -83,3 +83,4 @@ Asp.Cr.model = lmer(Asp.Cr ~ Time + Region + Asp..SD + (1|Subject), data=acg.pcg
 summary(Asp.Cr.model)
 residuals.asp.cr <- resid(Asp.Cr.model)
 plot(Asp.Cr.model, xlab = "Concentration", ylab = "Asp.Cr Residual")
+
